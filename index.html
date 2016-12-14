@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>map</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/myStyle.css">
+    <!--[if IE]>
+        <script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container-fluid" style="padding-right:0px;padding-left:0px;">
+    <div id="map" style="margin-top:-10px"></div>
+        <form onsubmit="submitFn(this, event);">
+            <div class="search-wrapper">
+                <div class="input-holder">
+                    <input type="text" class="search-input" placeholder="Search city" data-bind="value: searchText, valueUpdate: 'keyup'" />
+                    <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+                </div>
+                <span class="close" onclick="searchToggle(this, event);" style="opacity:1.0"></span>
+                <div class="result-container">
+                    <ul class="" role="menu" style="background:rgba(0,0,0,0.5); list-style:none; padding-left:0px;border-radius:10px;line-height:35px;" data-bind="foreach: locationName">
+                      <!-- <li><a tabindex="-1" href="#">Action</a></li> -->
+                                    <li class="start ">
+                                        <a data-bind="click: $parent.select" style="color:white;">
+                                        <i class="icon-pointer"></i>
+                                        <span class="title" data-bind="text: title, click: $parent.select"></span>
+                                        </a>
+                                    </li>
+
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    
+    <script src="http://libs.useso.com/js/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+    <link rel="text/javascript" href="js/bootstrap.min.js" />
+    <script src="js/lib/knockout-3.4.1.js"></script>
+    <script src="js/app.js"></script>
+
+    <script type="text/javascript">
+        function searchToggle(obj, evt){
+            var container = $(obj).closest('.search-wrapper');
+            var result_container = $('.result-container');
+            if(!container.hasClass('active')){
+                  container.addClass('active');
+                  result_container.css({
+                      display: 'block'
+                  });
+                  evt.preventDefault();
+            }
+            else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+                  container.removeClass('active');
+                  // clear input
+                  container.find('.search-input').val('');
+                  // clear and hide result container when we press close
+                  // container.find('.result-container').fadeOut(100, function(){$(this).empty();});
+                  container.find('.result-container').fadeOut(100, function(){});
+                  result_container.css({
+                      display: 'none'
+                  });
+            }
+        }
+        $(function(){
+            $('#map').height($(document.body).height());
+        })
+
+    
+    </script>
+
+    <script async defer
+        src=
+        "https://maps.googleapis.com/maps/api/js?key=AIzaSyCusaDpajQ5bc7rw9qYRW8dEozW4jx7TTg&callback=initMap" onerror="mapError()">
+    </script>
+</body>
+</html>
