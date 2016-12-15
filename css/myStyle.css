@@ -3,6 +3,11 @@ body {padding: 0px; margin:0px; background:url(http://demo.htmleaf.com/1601/2016
   
 }
 
+.container-fluid {
+    padding-right:0px;
+    padding-left:0px;
+}
+
 .search-wrapper {
     position: absolute;
     -webkit-transform: translate(-50%, -50%);
