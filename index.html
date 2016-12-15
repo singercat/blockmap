@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="container-fluid">
-    <div id="map" style="margin-top:-10px"></div>
+    <div id="map"></div>
         <form onsubmit="submitFn(this, event);">
             <main class="search-wrapper">
                 <div class="input-holder">
@@ -22,7 +22,7 @@
                 </div>
                 <span class="close" onclick="searchToggle(this, event);" style="opacity:1.0"></span>
                 <section class="result-container">
-                    <ul class="" role="menu" style="background:rgba(0,0,0,0.5); list-style:none; padding-left:0px;border-radius:10px;line-height:35px;" data-bind="foreach: locationName">
+                    <ul class="" role="menu" data-bind="foreach: locationName">
                         <li class="start ">
                             <a data-bind="click: $parent.select" style="color:white;">
                             <i class="icon-pointer"></i>
