@@ -8,6 +8,18 @@ body {padding: 0px; margin:0px; background:url(http://demo.htmleaf.com/1601/2016
     padding-left:0px;
 }
 
+ul {
+    background:rgba(0,0,0,0.5); 
+    list-style:none; 
+    padding-left:0px;
+    border-radius:10px;
+    line-height:35px;
+}
+
+#map {
+    margin-top:-10px;
+}
+
 .search-wrapper {
     position: absolute;
     -webkit-transform: translate(-50%, -50%);
